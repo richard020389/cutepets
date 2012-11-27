@@ -1,7 +1,6 @@
 cutepets
 ========
 
-homework for kevin's course
-init for changing  .
-another change.x
-ssh
+homework for kevin's course.
+app for sth about cute pets.
+init app.
