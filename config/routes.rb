@@ -1,4 +1,6 @@
 Cutepets::Application.routes.draw do
+  get "pet/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +50,7 @@ Cutepets::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'Pet#index'
 
   # See how all your routes lay out with "rake routes"
 
