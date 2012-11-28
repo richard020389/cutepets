@@ -1,0 +1,5 @@
+%ul
+  - @pets.each do |pet|
+    %li
+      %a{href: pet.url} 
+        =pet.title
