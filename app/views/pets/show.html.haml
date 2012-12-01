@@ -1,0 +1,10 @@
+%a{href: @pet.url} 
+  =@pet.title
+%p= "#{@pet.comments.count} 评论" 
+%table.table{style: "margin-left: 70px"}
+  %tbody
+    - @pet.comments.each do |comment|
+      %tr
+        %td= comment.content
+%a{href: pets_path} 
+  top page

@@ -1,5 +1,5 @@
 Cutepets::Application.routes.draw do
-  get "pets/index"
+  resources :pets ,only: [:index,:show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
