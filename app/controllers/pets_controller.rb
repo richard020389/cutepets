@@ -4,5 +4,15 @@ class PetsController < ApplicationController
   end
   def show
     @pet = Pet.find(params[:id])
+    @comment = Comment.new(pet_id: params[:id])
   end
+  def new
+    @pet = Pet.new
+  end
+  def create
+    @pet = Pet.new(params[:pet])
+    @pet.save
+    redirect_to pets_path
+  end
+  
 end

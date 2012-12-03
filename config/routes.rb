@@ -1,5 +1,6 @@
 Cutepets::Application.routes.draw do
-  resources :pets ,only: [:index,:show]
+  resources :pets ,only: [:index,:show,:new,:create]
+  resources :comments ,only: [:create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

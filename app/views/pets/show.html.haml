@@ -1,7 +1,18 @@
 %a{href: @pet.url} 
   =@pet.title
 %p= "#{@pet.comments.count} 评论" 
-%table.table{style: "margin-left: 70px"}
+
+= form_for @comment do |f|
+  %div{style: "display:none"}
+    =f.text_field(:pet_id)
+  =f.text_area(:content,rows: 6)
+  .button=f.submit("save")
+  
+
+
+
+
+%table.table{style: "margin-left: 70px;margin-top:40px"}
   %tbody
     - @pet.comments.each do |comment|
       %tr

@@ -1,0 +1,11 @@
+= form_for @pet do |f|
+  =f.label(:title,"标题")
+  =f.text_field(:title)
+
+  =f.label(:url,"url")
+  =f.text_area(:url,rows: 5)
+
+  .button=f.submit("提交")
+
+%a{href: pets_path} 
+  top page
