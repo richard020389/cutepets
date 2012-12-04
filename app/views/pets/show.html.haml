@@ -2,9 +2,7 @@
   =@pet.title
 %p= "#{@pet.comments.count} 评论" 
 
-= form_for [@pet,@comment] do |f|
-  =f.text_area(:content,rows: 6)
-  .button=f.submit("save")
+= render 'comments/comment'
   
 
 

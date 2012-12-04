@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   end
   def show
     @pet = Pet.find(params[:id])
-    @comment = Comment.new(pet_id: params[:id])
+    @comment = Comment.new
   end
   def new
     @pet = Pet.new
