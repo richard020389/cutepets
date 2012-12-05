@@ -8,7 +8,11 @@ class VotesController < ApplicationController
       vote.vote_count -=1
     end
     vote.save
+    if params[:from]=="index"
+      redirect_to pets_path
+    elsif params[:from]=="show"
+      redirect_to pet_path(pet)
+    end
 
-    redirect_to pet_path(pet)
   end
 end
