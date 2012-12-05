@@ -1,12 +1,15 @@
-%a{href: @pet.url} 
-  =@pet.title
-%p= "#{@pet.comments.count} 评论" 
+.well.row-fluid
+  = render @pet.vote
+  .span4
+    %a{href: @pet.url,style:"display: block"} 
+      =@pet.title
+    promoted by 
+    %p= "#{@pet.comments.count} 评论" 
+
+
+
 
 = render 'comments/comment'
-  
-
-
-
 
 %table.table{style: "margin-left: 70px;margin-top:40px"}
   %tbody

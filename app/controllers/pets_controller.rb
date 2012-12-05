@@ -5,6 +5,7 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @comment = Comment.new
+    @vote = @pet.vote
   end
   def new
     @pet = Pet.new
@@ -12,6 +13,7 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(params[:pet])
     @pet.save
+    @pet.vote= Vote.create 
     redirect_to pets_path
   end
   

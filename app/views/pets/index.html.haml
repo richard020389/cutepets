@@ -2,12 +2,17 @@
   %a{href: new_pet_path}
     Submit a Link
 //%div{ style:"margin-bottom: 30px"}
-%ul
+%table.table-striped
   - @pets.each do |pet|
-    %li{style:"margin-bottom: 20px"}
-      %p
-        %a{href: pet.url} 
-          =pet.title
-      %p
-        %a{href: pet_path(pet)}
-          = "#{pet.comments.count} 评论" 
+    %tr{style:"margin-bottom: 20px"}
+      %td
+        /#=render 'votes/vote'
+        =render pet.vote 
+
+      %td
+        %p
+          %a{href: pet.url} 
+            =pet.title
+        %p
+          %a{href: pet_path(pet)}
+            = "#{pet.comments.count} 评论" 
