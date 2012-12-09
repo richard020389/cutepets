@@ -1,7 +1,7 @@
 .well.row-fluid
   = render @pet.vote
   .span4
-    %a{href: @pet.url,style:"display: block"} 
+    %a{href: fix_url(@pet.url),style:"display: block"} 
       =@pet.title
     promoted by 
     %p= "#{@pet.comments.count} 评论" 

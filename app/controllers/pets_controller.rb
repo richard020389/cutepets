@@ -12,9 +12,12 @@ class PetsController < ApplicationController
   end
   def create
     @pet = Pet.new(params[:pet])
-    @pet.save
-    @pet.vote= Vote.create 
-    redirect_to pets_path
+    if @pet.save
+      @pet.vote= Vote.create 
+      redirect_to pets_path
+    else 
+      render new_pet_path
+    end
   end
   
 end

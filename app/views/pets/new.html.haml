@@ -1,3 +1,6 @@
+- if @pet.errors.messages.any?
+  .alert.alert-error
+    = @pet.errors.full_messages.join("<br/>").html_safe
 = form_for @pet do |f|
   =f.label(:title,"标题")
   =f.text_field(:title)
