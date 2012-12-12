@@ -10,7 +10,10 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to pet_path(@comment.pet)
     else
-      redirect_to pet_path(@comment.pet)
+      #redirect_to pet_path(@comment.pet)
+      flash.now[:error]=@comment.errors.full_messages.join("<br/>").html_safe
+      @pet=Pet.find(params[:pet_id])
+      render "pets/show"
     end
   end
 end
