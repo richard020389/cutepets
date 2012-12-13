@@ -1,0 +1,10 @@
+
+= form_for @user,url: sessions_path do |f|
+  =f.label(:title,"用户名")
+  =f.text_field(:username)
+
+  =f.label(:url,"密码")
+  =f.password_field(:password)
+
+  .button=f.submit("确认")
+

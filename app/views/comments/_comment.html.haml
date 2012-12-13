@@ -5,6 +5,12 @@
   
 
 // use form_tag
-= form_tag(pet_comments_path(@pet,@comment),method: "post" )do 
-  = text_area_tag("comment[content]")
-  .button= submit_tag("save")
+- if is_login
+  = form_tag(pet_comments_path(@pet,@comment),method: "post" )do 
+    = text_area_tag("comment[content]")
+    .button= submit_tag("save")
+- else
+  %p
+    you have to
+    =link_to "log in",login_path(origin_path: request.fullpath)
+    to add a comment

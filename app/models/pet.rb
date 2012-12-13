@@ -3,6 +3,7 @@ class Pet < ActiveRecord::Base
 
   has_many :comments
   has_one :vote
+  belongs_to :user
 
   validates :title,:url, presence: true
 end

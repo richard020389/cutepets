@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :require_login, only:[:create]
   def new
     @pet = Pet.find(params[:pet_id])
     @comment = Comment.new

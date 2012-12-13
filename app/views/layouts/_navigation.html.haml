@@ -1,0 +1,19 @@
+Navigation
+|
+/#=params
+/#|
+%div{style: "float:right"}
+  - if is_login
+    =session[:user][:username]
+    <br/>
+    =link_to "log out",logout_path
+  - else
+    =link_to "log in",login_path(origin_path: request.fullpath)
+    <br/>or 
+    =link_to "sign up",register_path
+    
+
+
+
+
+

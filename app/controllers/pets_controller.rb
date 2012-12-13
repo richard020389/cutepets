@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_filter :require_login, except:[:index,:show]
   def index
     @pets = Pet.all
   end
@@ -12,6 +13,7 @@ class PetsController < ApplicationController
   end
   def create
     @pet = Pet.new(params[:pet])
+    @pet.user = session[:user]
     if @pet.save
       @pet.vote= Vote.create 
       #flash[:notice]="succeed to submit a link"
