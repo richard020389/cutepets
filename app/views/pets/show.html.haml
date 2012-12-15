@@ -3,7 +3,8 @@
   .span4
     %a{href: fix_url(@pet.url),style:"display: block"} 
       =@pet.title
-    promoted by 
+    promoted by :
+    =@pet.user.username
     %p= "#{@pet.comments.count} 评论" 
 
 
