@@ -1,20 +1,21 @@
 class CommentsController < ApplicationController
   before_filter :require_login, only:[:create]
+  before_filter :find_pet
   def new
-    @pet = Pet.find(params[:pet_id])
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(params[:comment])
-    @comment.pet_id = params[:pet_id]
+    @comment = @pet.comments.build(params[:comment])
     if @comment.save
-      redirect_to pet_path(@comment.pet)
+      redirect_to pet_path(@pet)
     else
-      #redirect_to pet_path(@comment.pet)
       flash.now[:error]=@comment.errors.full_messages.join("<br/>").html_safe
-      @pet=Pet.find(params[:pet_id])
       render "pets/show"
     end
+  end
+  private
+  def find_pet
+    @pet = Pet.find(params[:pet_id])
   end
 end

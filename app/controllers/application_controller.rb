@@ -1,15 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :is_login
+  helper_method :logged?
 
-  def is_login
+  def logged?
     !!session[:user]
   end
 
   def require_login
-    if is_login
-      #
-    else
+    if !logged?
       flash[:error]="you have to log in first"
       redirect_to root_path
     end

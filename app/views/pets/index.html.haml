@@ -1,18 +1,16 @@
 .well{style: "float:right"}
   %a{href: new_pet_path}
     Submit a Link
-//%div{ style:"margin-bottom: 30px"}
 %table.table-striped
   - @pets.each do |pet|
     %tr{style:"margin-bottom: 20px"}
       %td
-        /#=render 'votes/vote'
-        =render pet.vote 
+        = render pet.vote 
 
       %td
         %p
           %a{href: fix_url(pet.url)} 
-            =pet.title
+            = pet.title
         %p
           by 
           =pet.user.username

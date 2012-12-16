@@ -1,13 +1,8 @@
-// use form_for
-/#= form_for [@pet,@comment] do |f|
-/#  =f.text_area(:content,rows: 6)
-/#  .button=f.submit("save")
-  
-
-// use form_tag
-- if is_login
-  = form_tag(pet_comments_path(@pet,@comment),method: "post" )do 
+- if logged?
+  /#= form_tag(pet_comments_path(@pet,@comment),method: "post")do 
+  = form_tag(pet_comments_path(@pet,@comment),method: "post")do 
     = text_area_tag("comment[content]")
+
     .button= submit_tag("save")
 - else
   %p

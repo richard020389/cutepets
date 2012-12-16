@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_filter :require_login, except:[:index,:show]
+
   def index
     @pets = Pet.all
   end
