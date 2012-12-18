@@ -4,8 +4,8 @@ Cutepets::Application.routes.draw do
     resources :votes ,only: [:create]
   end
 
-  resources :users , only: [:new,:create] 
-  resources :sessions , only: [:new,:create,:delete] 
+  resources :users , only: [:new,:create,:show]
+  resources :sessions , only: [:new,:create,:delete]
 
   get 'register' => 'users#new', as: 'register'
   get 'login' => 'sessions#new', as: 'login'

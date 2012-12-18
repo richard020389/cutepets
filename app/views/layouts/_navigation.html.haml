@@ -2,7 +2,7 @@ Navigation
 |
 %div{style: "float:right"}
   - if logged?
-    =session[:user][:username]
+    =link_to session[:user][:username], user_path(session[:user])
     <br/>
     =link_to "log out",logout_path
   - else

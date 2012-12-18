@@ -1,0 +1,34 @@
+%p
+  %strong 用户名：
+  = @user.username
+%p
+  %strong 注册时间：
+  = format_time(@user.created_at)
+%p
+  %strong 最近发帖：
+%table.table
+  - @user.pets.try(:reverse)[0..9].each do |pet|
+    %tr
+      %td
+        =link_to pet.title, pet_path(pet)
+
+%p
+  %strong 最近回帖：
+%table.table
+  - @user.comments.try(:reverse)[0..9].each do |comment|
+    %tr
+      %td
+        %p= link_to comment.try(:pet).title, pet_path(comment.pet)
+        %p= comment.content
+
+%p
+  %strong 最近投票：
+%table.table
+  - @user.votes.try(:reverse)[0..9].each do |vote|
+    %tr
+      %td
+        - if vote.direct == "up"
+          %i.icon-arrow-up
+        - else
+          %i.icon-arrow-down
+        =link_to vote.try(:pet).title, pet_path(vote.pet)
