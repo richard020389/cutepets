@@ -13,8 +13,9 @@
           %a{href: fix_url(@pet.url)}
             = @pet.title
         %p
-          by 
-          =@pet.user.username
+          by
+          /#= @pet.user.username
+          = link_to @pet.user.username, user_path(@pet.user)
         %p
           %a{href: pet_path(@pet)}
             = "#{@pet.comments.count} 评论"

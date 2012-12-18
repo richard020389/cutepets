@@ -4,7 +4,7 @@
     %a{href: fix_url(@pet.url),style:"display: block"} 
       = @pet.title
     promoted by :
-    = @pet.user.username
+    = link_to @pet.user.username, user_path(@pet.user)
     %p= "#{@pet.comments.count} 评论" 
 
 
@@ -18,5 +18,7 @@
       %tr
         %td
           %p
-            %strong= comment.try(:user).try{|user| user.username+":"}
+            - if comment.try(:user).try(:username)
+              = link_to comment.try(:user).try(:username), user_path(comment.user)
+              %strong :
           %p= comment.content
