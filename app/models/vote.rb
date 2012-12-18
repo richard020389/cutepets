@@ -1,5 +1,6 @@
 class Vote < ActiveRecord::Base
-  attr_accessible :vote_count
+  attr_accessible :direct
 
   belongs_to :pet
+  belongs_to :user
 end

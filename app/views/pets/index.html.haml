@@ -3,17 +3,18 @@
     Submit a Link
 %table.table-striped
   - @pets.each do |pet|
+    -@pet = pet
     %tr{style:"margin-bottom: 20px"}
       %td
-        = render pet.vote 
+        = render 'votes/vote'
 
       %td
         %p
-          %a{href: fix_url(pet.url)} 
-            = pet.title
+          %a{href: fix_url(@pet.url)}
+            = @pet.title
         %p
           by 
-          =pet.user.username
+          =@pet.user.username
         %p
-          %a{href: pet_path(pet)}
-            = "#{pet.comments.count} 评论" 
+          %a{href: pet_path(@pet)}
+            = "#{@pet.comments.count} 评论"

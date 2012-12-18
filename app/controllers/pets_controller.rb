@@ -7,7 +7,6 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @comment = Comment.new
-    @vote = @pet.vote
   end
   def new
     @pet = Pet.new
@@ -16,8 +15,6 @@ class PetsController < ApplicationController
     @pet = Pet.new(params[:pet])
     @pet.user = session[:user]
     if @pet.save
-      @pet.vote= Vote.create 
-      #flash[:notice]="succeed to submit a link"
       redirect_to pets_path
     else 
       flash.now[:error] = @pet.errors.full_messages.join("<br/>").html_safe

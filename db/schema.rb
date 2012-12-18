@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215020341) do
+ActiveRecord::Schema.define(:version => 20121218022911) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -36,10 +36,11 @@ ActiveRecord::Schema.define(:version => 20121215020341) do
   end
 
   create_table "votes", :force => true do |t|
-    t.integer  "vote_count", :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "pet_id"
+    t.string   "direct",     :default => "up"
+    t.integer  "user_id"
   end
 
 end

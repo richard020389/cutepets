@@ -1,7 +1,7 @@
 Cutepets::Application.routes.draw do
   resources :pets ,only: [:index,:show,:new,:create] do
     resources :comments ,only: [:new,:create]
-    resources :votes ,only: [:update]
+    resources :votes ,only: [:create]
   end
 
   resources :users , only: [:new,:create] 

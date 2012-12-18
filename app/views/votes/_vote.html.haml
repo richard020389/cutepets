@@ -2,11 +2,11 @@
   %table
     %tr
       %td
-        = link_to pet_vote_path(vote.pet,vote,type:"up",from: params[:action]),title:"顶", method: 'put'  do
+        = link_to pet_votes_path(@pet,direct:"up",from: params[:action]),title:"顶", method: 'post'  do
           %i.icon-arrow-up
     %tr
-      %td= vote.vote_count
+      %td= @pet.vote_count
     %tr
       %td
-        = link_to pet_vote_path(vote.pet,vote,type:"down",from: params[:action]),title:"踩", method: 'put'   do
+        = link_to pet_votes_path(@pet,direct:"down",from: params[:action]),title:"踩", method: 'post'   do
           %i.icon-arrow-down
