@@ -16,4 +16,7 @@
   %tbody
     - @pet.comments.each do |comment|
       %tr
-        %td= comment.content
+        %td
+          %p
+            %strong= comment.try(:user).try{|user| user.username+":"}
+          %p= comment.content

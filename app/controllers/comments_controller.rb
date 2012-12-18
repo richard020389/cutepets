@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @pet.comments.build(params[:comment])
+    @comment.user = session[:user]
     if @comment.save
       redirect_to pet_path(@pet)
     else
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
       render "pets/show"
     end
   end
+
   private
   def find_pet
     @pet = Pet.find(params[:pet_id])
