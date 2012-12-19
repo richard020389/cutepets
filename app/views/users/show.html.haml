@@ -43,5 +43,7 @@
           = line.text
   - rescue Exception => e
     %p fail to access twitter
+    %p= Twitter.try(:user_timeline,@user.twitter_handle).to_s
+
     %p= e.to_s#.errors.first.messsage
     /#%p= e.backtrace.inspect
