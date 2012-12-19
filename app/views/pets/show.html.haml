@@ -3,9 +3,11 @@
   .span4
     %a{href: fix_url(@pet.url),style:"display: block"} 
       = @pet.title
+    = link_to "[#{@pet.topic.topic_name}]", topic_path(@pet.topic)
+    &bull;
     promoted by :
     = link_to @pet.user.username, user_path(@pet.user)
-    %p= "#{@pet.comments.count} 评论" 
+    %p= "#{@pet.comments.count} 评论"
 
 
 

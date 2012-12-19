@@ -1,5 +1,5 @@
 - if logged?
-  = form_tag(pet_comments_path(@pet,@comment),method: "post")do 
+  = form_tag(pet_comments_path(@pet,@comment),method: "post")do
     = text_area_tag("comment[content]")
 
     .button= submit_tag("save")
