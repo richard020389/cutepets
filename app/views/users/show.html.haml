@@ -2,6 +2,9 @@
   %strong 用户名：
   = @user.username
 %p
+  %strong twitter：
+  = @user.twitter_handle
+%p
   %strong 注册时间：
   = format_time(@user.created_at)
 %p
