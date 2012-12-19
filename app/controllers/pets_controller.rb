@@ -2,7 +2,7 @@ class PetsController < ApplicationController
   before_filter :require_login, except:[:index,:show]
 
   def index
-    @pets = Pet.all
+    @pets = Pet.all.reverse
   end
   def show
     @pet = Pet.find(params[:id])
