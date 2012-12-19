@@ -37,7 +37,7 @@
   %strong 最近twitter：
 %table.table
   - begin
-    - Twitter.try(:user_timeline,@user.twitter_handle).try(:reverse)[0..9].each do |line|
+    - Twitter.try(:user_timeline,@user.twitter_handle)[0..9].each do |line|
       %tr
         %td
           = line.text
