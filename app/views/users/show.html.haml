@@ -41,5 +41,7 @@
       %tr
         %td
           = line.text
-  - rescue
+  - rescue Exception => e
     %p fail to access twitter
+    %p= e.to_s#.errors.first.messsage
+    /#%p= e.backtrace.inspect

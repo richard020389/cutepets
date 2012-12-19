@@ -1,9 +1,12 @@
 = form_for @user do |f|
-  =f.label(:title,"用户名")
-  =f.text_field(:username)
+  = f.label(:title,"用户名")
+  = f.text_field(:username)
 
-  =f.label(:url,"密码")
-  =f.password_field(:password)
+  = f.label(:url,"密码")
+  = f.password_field(:password)
+
+  = f.label(:twitter_handle,"twitter帐号")
+  = f.password_field(:twitter_handle)
 
   .button=f.submit("确认")
 
