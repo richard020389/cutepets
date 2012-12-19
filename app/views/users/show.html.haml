@@ -31,4 +31,15 @@
           %i.icon-arrow-up
         - else
           %i.icon-arrow-down
-        =link_to vote.try(:pet).title, pet_path(vote.pet)
+        = link_to vote.try(:pet).title, pet_path(vote.pet)
+
+%p
+  %strong 最近twitter：
+%table.table
+  - begin
+    - Twitter.try(:user_timeline,@user.twitter_handle).try(reverse[0..9]).each do |line|
+      %tr
+        %td
+          = line.text
+  - rescue
+    %p fail to access twitter
