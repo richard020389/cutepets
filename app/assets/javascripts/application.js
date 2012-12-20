@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function(){
-  $('#tip').tooltip('show');
+  $('#tip').mouseenter(function(){
+    $('#tip').tooltip('show');
+  });
 });
